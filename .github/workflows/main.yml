@@ -9,20 +9,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:   
     - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Install Surge CLI
-      run: |
-        npm install --global surge
+      run: npm install --global surge
 
     - name: Deploy to Surge
-      run: |
-        # Forzar el login sin interacción
-        echo "Surge Token: ${{ secrets.SURGE_TOKEN }}" | surge login --token ${{ secrets.SURGE_TOKEN }}
-        
-        # Desplegar el proyecto
-        surge . ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh
-      env:
-        SURGE_SUBDOMAIN: electiva2-ci
+      run: surge --project ./ --domain ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+
+
