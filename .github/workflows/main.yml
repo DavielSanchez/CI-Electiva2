@@ -1,0 +1,28 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Surge CLI
+      run: |
+        npm install --global surge
+
+    - name: Deploy to Surge
+      run: |
+        # Iniciar sesión en Surge
+        surge login --token c69ee2e81e1881402170a35b6021a388
+        
+        # Desplegar el proyecto
+        surge . electiva2-ci.surge.sh
+      env:
+        SURGE_SUBDOMAIN: electiva2-ci
