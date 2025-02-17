@@ -20,9 +20,9 @@ jobs:
     - name: Deploy to Surge
       run: |
         # Iniciar sesión en Surge
-        surge login --token c69ee2e81e1881402170a35b6021a388
+        surge login --token ${{ secrets.SURGE_API_KEY }}
         
         # Desplegar el proyecto
-        surge . electiva2-ci.surge.sh
+        surge . ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh
       env:
-        SURGE_SUBDOMAIN: electiva2-ci
+        SURGE_SUBDOMAIN: ${{ secrets.SURGE_SUBDOMAIN }}
