@@ -19,8 +19,8 @@ jobs:
 
     - name: Deploy to Surge
       run: |
-        # Login en Surge utilizando el token almacenado en los secrets
-        surge login --token ${{ secrets.SURGE_TOKEN }}
+        # Forzar el login sin interacción
+        echo "Surge Token: ${{ secrets.SURGE_TOKEN }}" | surge login --token ${{ secrets.SURGE_TOKEN }}
         
         # Desplegar el proyecto
         surge . ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh
