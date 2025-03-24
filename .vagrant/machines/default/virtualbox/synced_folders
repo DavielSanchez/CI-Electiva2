@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/html":{"type":"virtualbox","guestpath":"/var/www/html","hostpath":"C:/Users/davie/OneDrive/Escritorio/Desktop/Electiva/Electiva 2/CI-Electiva2/src","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/davie/OneDrive/Escritorio/Desktop/Electiva/Electiva 2/CI-Electiva2","disabled":false,"__vagrantfile":true}}}
